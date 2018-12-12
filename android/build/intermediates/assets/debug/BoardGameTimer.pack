@@ -1,0 +1,59 @@
+
+BoardGameTimer.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 1, 583
+  size: 450, 301
+  orig: 450, 301
+  offset: 0, 0
+  index: -1
+settingsDown
+  rotate: false
+  xy: 453, 709
+  size: 529, 175
+  orig: 529, 175
+  offset: 0, 0
+  index: -1
+settingsUp
+  rotate: false
+  xy: 453, 532
+  size: 529, 175
+  orig: 529, 175
+  offset: 0, 0
+  index: -1
+startButtonDown
+  rotate: false
+  xy: 1, 355
+  size: 529, 175
+  orig: 529, 175
+  offset: 0, 0
+  index: -1
+startButtonUp
+  rotate: false
+  xy: 1, 178
+  size: 529, 175
+  orig: 529, 175
+  offset: 0, 0
+  index: -1
+stopButtonDown
+  rotate: false
+  xy: 1, 1
+  size: 529, 175
+  orig: 529, 175
+  offset: 0, 0
+  index: -1
+
+BoardGameTimer2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+stopButtonUp
+  rotate: false
+  xy: 1, 1
+  size: 529, 175
+  orig: 529, 175
+  offset: 0, 0
+  index: -1
