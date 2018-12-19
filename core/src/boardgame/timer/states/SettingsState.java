@@ -7,9 +7,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.utils.Array;
 
 
 import boardgame.timer.GUI;
+import boardgame.timer.Player;
 
 public class SettingsState extends State {
     private Skin uiSkin;
@@ -19,6 +21,9 @@ public class SettingsState extends State {
     public static TextField minField;
     public static TextField secField;
     public static TextField playerField;
+    private boolean pressed=false;
+    public static Array<Player> players;
+    private static int playersCount=0;
 
 
 
@@ -33,6 +38,7 @@ public class SettingsState extends State {
         table.setFillParent(true);
         table.setBackground(skin.getDrawable("background"));
         stage.addActor(table);
+        players = new Array<Player>();
 
 
 
@@ -54,18 +60,64 @@ public class SettingsState extends State {
     }
 
 
+    public static int getMin(){
+        int min=Integer.parseInt(minField.getText());
+        return min;
+    }
+
+    public static int getSec(){
+        int sec=Integer.parseInt(secField.getText());
+        return sec;
+    }
+
+
+    public void keyReleased(){
+        //boolean released=false;
+        if (GUI.ok.isPressed()&&pressed==false){
+            pressed=true;
+        }
+        if (GUI.ok.isPressed()==false&&pressed==true){
+            addPlayer();
+            pressed=false;
+        }else{
+        }
+    }
+
+
+    protected void addPlayer() {
+
+            if (pressed == true && GUI.ok.isPressed() == false) {
+                if (!minField.getText().isEmpty() && !secField.getText().isEmpty() && !playerField.getText().isEmpty()) {
+                    players.add(new Player(playerField.getText(), getMin(), getSec()));
+
+
+                }
+//            if (playerField&&Integer.parseInt(minField.getText())=>0&&secField>-1){
+                for (int i = 0; i < players.size; i++) {
+                    System.out.println(players.get(i).name);
+                    System.out.println(players.get(i).min);
+                    System.out.println(players.get(i).sec);
+                }
+                System.out.println(players.size);
+              //  pressed = false;
+            }
+
+        //}
+    }
+
 
 
 
 
     @Override
     protected void handleInput() {
-
+        keyReleased();
+      //  addPlayer();
     }
 
     @Override
     public void update(float dt) {
-
+        handleInput();
     }
 
     @Override
